@@ -13,3 +13,5 @@
 
 * What is a merge conflict?
     A merge conflict occurs when Git cannot automatically merge two branches due to discrepancies in the files, such as if the same line of code is changed in two different ways in the branched files and cannot be auto merged.
+
+    **MANDATORY CHANGES FOR 1.5 RELEASE 2**
