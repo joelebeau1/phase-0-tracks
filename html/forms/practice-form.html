@@ -1,34 +1,40 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title>Practice Form</title>
-</head>
-<body>
-    <form action="success.html" method="post">
-      <div>
-        <label>Email:</label>
-        <input type="email" name="email">
-      </div>
-      <div>
-        <label>Password:</label>
-        <input type="password" name="password">
-      </div>
-      <div>
-        <select name="carlist" form="carform">
-             <option value="Member">Member</option>
-             <option value="Administrator">Admin</option>
-             <option value="Guest">Guest</option>
-             <option value="VIP">VIP</option>
-        </select>
-        </div>
-        <div>
-        <fieldset>  
-           <legend>Your comments</legend>  
-           <p><textarea class="noscrollbars" onkeyup="autoGrow(this);"></textarea></p>
-           <!-- <p><input type="submit" value="Send" /></p> -->
-         </fieldset>
-         </div>
-        <button type="submit">Log in</button> 
-    </form>
-</body>
+    <head>
+        <title>Practice Form</title>
+    </head>
+    <body>
+        <form action="success.html" method="post" name="practice_form">
+            <div>
+                <label>Email:</label>
+                <input type="email" name="email">
+            </div>
+            <div>
+                <label>Password:</label>
+                <input type="password" name="password">
+            </div>
+            <div>
+                <select name="guest_status">
+                    <option value="Member">Member</option>
+                    <option value="Administrator">Admin</option>
+                    <option value="Guest">Guest</option>
+                    <option value="VIP">VIP</option>
+                </select>
+            </div>
+            <div>
+                <fieldset name="comments">
+                    <legend>Your comments</legend>
+                    <p><textarea class="noscrollbars" onkeyup="autoGrow(this);"></textarea></p>
+                    <!-- <p><input type="submit" value="Send" /></p> -->
+                </fieldset>
+                <!--            
+                    --><input type="radio" name="gender" value="male" checked> Male<br>
+                <input type="radio" name="gender" value="female"> Female<br>
+                <input type="radio" name="gender" value="other"> Other<br>
+            </div>
+            <div> 
+                <button type="submit">Log in</button>
+            </div>
+        </form>
+    </body>
 </html>
