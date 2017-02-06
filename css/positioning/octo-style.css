@@ -1,0 +1,13 @@
+#ollie {position: absolute;
+        top: 150px;
+        left: 300px;
+        z-index: 0}
+#hat {position: absolute;
+     left: 280px;
+     top: 80px;
+     z-index: 1}
+#glasses {position: absolute;
+        top: 248px;
+        left: 342px;
+        z-index: 1
+}
