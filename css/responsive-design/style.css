@@ -9,10 +9,13 @@ cite {
   margin-top: 10px;
 }
 
-#external-links ul {width: 200px;
+#external-links ul {width: 20%;
+  min-width: 200px;
   list-style-type: none;
   padding-left: 0px;
-  
+  display: table-cell;
+  vertical-align: inherit;
+
 }
 
 /* you're welcome to edit the
@@ -32,8 +35,18 @@ figcaption {
   text-align: right;
 }
 
-body {width: 960px;
+body {max-width: 960px;
+      display: table;
 
 }
 
-main {width: 756px;}
+main {width: 756px;
+      display: table-cell;
+
+}
+
+@media handheld and (orientation: portrait) {
+    #external-links {
+        display: block;
+    }
+}
