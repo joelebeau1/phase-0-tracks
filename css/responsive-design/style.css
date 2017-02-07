@@ -9,9 +9,10 @@ cite {
   margin-top: 10px;
 }
 
-#external-links ul {
+#external-links ul {width: 200px;
   list-style-type: none;
   padding-left: 0px;
+  
 }
 
 /* you're welcome to edit the
@@ -30,3 +31,9 @@ figcaption {
   font-style: italic;
   text-align: right;
 }
+
+body {width: 960px;
+
+}
+
+main {width: 756px;}
