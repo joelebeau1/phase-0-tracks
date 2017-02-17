@@ -1,0 +1,14 @@
+Elevator Algorithm:
+    1. Wait for human to enter elevator
+    2. When human enters elevator, say "what floor are you going to?"
+    3. When human states floor number or name, find corresponding button and push button
+    4. If no floor name or number corresponds with human statement, say "I'm not sure if there's a matching floor in this building, try again please"
+    5. When human exits elevator, say "thanks for riding!"
+
+Traffic Light Algorithm:
+    1. Initiate algorithm when next intersection is a traffic light.
+    2. If light is green, maintain current speed and continue to watch traffic light for changes
+    3. If light is yellow, reduce speed and anticipate stopping soon
+        3a. If light turns yellow and distance to intersection is less than 50m, evaluate other cars in intersection and either a) continue through traffic light if there are no other vehicles blocking intersection, or b) stop vehicle before intersection if intersection is not clear.
+    4. If light is red, reduce speed and bring vehicle to a stop behind the next car or behind the white traffic line, whichever comes first.
+    5. Once light turns green, continue driving through intersection when it is clear.
