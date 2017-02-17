@@ -35,23 +35,25 @@ figcaption {
   text-align: right;
 }
 
-body {max-width: 960px;
-      display: table;
+body {
+    /*max-width: 960px;*/
+    display: table;
 
 }
 
-main {width: 756px;
-      display: table-cell;
+main {
+    /*width: 756px;*/
+    display: table-cell;
 
 }
 
 @media screen and (max-width: 500px) {
     #external-links {
-        font-size: 0.8em;
+        font-size: 0.8em; background-color: hotpink
     }
 }
 
-@media screen and (min-width: 700px) {
+@media screen and (min-width: 800px) {
     body {
         font-size: 1.5em;
     }
