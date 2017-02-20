@@ -26,6 +26,20 @@ until survey_reps == 0
   puts "[Y/N] Do you plan on enrolling in our company health insurance plan?"
   health_plan = gets.chomp.upcase
   
+  allergy_input = nil
+  until allergy_input == "done" || allergy_input == "sunshine"
+    puts "Please list all allergies one at a time, and enter 'done' when you are finished"
+    
+    allergy_input = gets.chomp.downcase
+    
+    if allergy_input == "sunshine"
+    puts "Probably a vampire!"
+    end
+    
+  end 
+  
+  
+  puts ""
   puts "SURVEY RESULTS:"
   
   # #Detection Logic
