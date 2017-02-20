@@ -95,3 +95,5 @@ case survey_reps
 when survey_reps = 0 
   puts "All interview candidate surveys completed. Thank you for your interest in Werewolf Inc!"
 end 
+
+puts "Actually, never mind! What do these questions have to do with anything? Let's all be friends."
