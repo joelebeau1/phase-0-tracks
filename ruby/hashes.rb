@@ -1,11 +1,11 @@
-#Prompt user for name, age, children & ages, decor theme, number of bathrooms/bedrooms,
+# Release 3: Program for interior designers to store client details
+
+#1) Prompt user for name, age, children & ages, decor theme, number of bathrooms/bedrooms,
 # years in home, like neutral colors, like light colors, like bold colors,
 # approximate budget, and any additional comments
+#2) Convert user input to appropriate data type
 
-#Convert user input to appropriate data type
-
-puts "Thank you for your interest in Trendy Design Inc."
-puts "Please fill out this short form with your personal details and design preferences"
+puts "Trendy Design Inc. Client Data Form"
 
 puts "Name:"
 client_name = gets.chomp
@@ -61,7 +61,9 @@ design_budget = gets.chomp.to_i
 puts "Additional comments or information:"
 additional_info = gets.chomp
 
-#Store user input in a hash using symbols
+#User input and data type conversion working
+
+#3) Store user input in a hash using symbols
 
 new_client_info = {
     name: client_name,
@@ -80,9 +82,12 @@ new_client_info = {
 
 }
 
+#Print hash to screen for user to review
+puts "Please review and confirm your responses below:"
 p new_client_info
-
-#Print hash out to screen
 
 #Provide user chance to update or correct values, skipping is user enters 'none'
 #If user enters a key they want to change, prompt for new value and update
+puts "If there is a response you'd like to change, 
+If there are no changes you'd like to make to your responses, type 'none' to skip this step"
+
