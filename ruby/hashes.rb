@@ -1,11 +1,11 @@
-#Prompt user for name, age, children & ages, decor theme, number of bathrooms/bedrooms,
-# years in home, like neutral colors, like light colors, like bold colors,
-# approximate budget, and any additional comments
+# Release 3: Program for interior designers to store client details
 
-#Convert user input to appropriate data type
+#1) Prompt user for name, age, children & ages, decor theme, number of bathrooms/bedrooms,
+# years in home, like neutral colors, like light colors, like bold colors, approximate budget,
+# and any additional comments
+#2) Convert user input to appropriate data type
 
-puts "Thank you for your interest in Trendy Design Inc."
-puts "Please fill out this short form with your personal details and design preferences"
+puts "Trendy Design Inc. Client Data Form"
 
 puts "Name:"
 client_name = gets.chomp
@@ -31,6 +31,7 @@ bathrooms = gets.chomp.to_f
 puts "Time in current home (in years):"
 years_in_home = gets.chomp.to_f
 
+#Storing yes/no info as boolean
 puts "Prefer neutral colors [yes/no]"
 neutral_input = gets.chomp.downcase
 if neutral_input == "yes" || neutral_input == "y";
@@ -55,13 +56,16 @@ elsif dark_input == "no" || dark_input == "n";
     prefer_dark = false
 end 
 
-puts "Approximate design budget:"
+#conversion to integer fails is user inputs '$' symbol
+puts "Approximate design budget (numbers only):"
 design_budget = gets.chomp.to_i
 
 puts "Additional comments or information:"
 additional_info = gets.chomp
 
-#Store user input in a hash using symbols
+#User input and data type conversion working
+
+#3) Store user input in a hash using symbols
 
 new_client_info = {
     name: client_name,
@@ -80,9 +84,42 @@ new_client_info = {
 
 }
 
-#Print hash out to screen
+#Print hash to screen for user to review; uses .each iteration method to print has keys & values in user-friendly readable statements
+puts "Please review and confirm your responses below:"
+
+new_client_info.each do |detail, value|
+    puts "Client's #{detail.to_s.tr('_', ' ')}: #{value}"
+end
+
 
 
 
 #Provide user chance to update or correct values, skipping is user enters 'none'
 #If user enters a key they want to change, prompt for new value and update
+puts "If there is a response you'd like to change, enter which value you want to update (name, number_of_children, approximate_budget etc.),
+then enter the updated information when prompted. When you are finished, or if you have no changes to make, type 'none' to skip this step"
+
+loop do 
+    puts "Which value would you like to update?"
+    key_to_change = gets.chomp.downcase
+        
+        if key_to_change == "none";
+                break
+            end 
+
+    puts "Enter new response now:"
+    updated_value = gets.chomp
+
+#Update hash key values with user inputted changes
+    new_client_info[key_to_change.to_sym] = updated_value
+
+    puts "You changed #{key_to_change} to #{updated_value}"
+
+end 
+
+# Print hash; use .each iterative method to print information in user-friendly readable statements
+puts "Thank you for filling out this new client intake form, you may view client's information below:"
+
+new_client_info.each do |detail, value|
+    puts "Client's #{detail.to_s.tr('_', ' ')}: #{value}"
+end 
