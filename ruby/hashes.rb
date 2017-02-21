@@ -80,9 +80,9 @@ new_client_info = {
 
 }
 
-p new_client_info
-
 #Print hash out to screen
+
+
 
 #Provide user chance to update or correct values, skipping is user enters 'none'
 #If user enters a key they want to change, prompt for new value and update
