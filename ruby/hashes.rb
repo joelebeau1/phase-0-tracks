@@ -1,8 +1,8 @@
 # Release 3: Program for interior designers to store client details
 
 #1) Prompt user for name, age, children & ages, decor theme, number of bathrooms/bedrooms,
-# years in home, like neutral colors, like light colors, like bold colors,
-# approximate budget, and any additional comments
+# years in home, like neutral colors, like light colors, like bold colors, approximate budget,
+# and any additional comments
 #2) Convert user input to appropriate data type
 
 puts "Trendy Design Inc. Client Data Form"
@@ -90,6 +90,9 @@ puts "Please review and confirm your responses below:"
 new_client_info.each do |detail, value|
     puts "Client's #{detail.to_s.tr('_', ' ')}: #{value}"
 end
+
+
+
 
 #Provide user chance to update or correct values, skipping is user enters 'none'
 #If user enters a key they want to change, prompt for new value and update
