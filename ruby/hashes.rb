@@ -108,8 +108,6 @@ loop do
 
 end 
 
-new_client_info.to_a
-
 
 
 
