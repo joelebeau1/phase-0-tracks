@@ -31,6 +31,7 @@ bathrooms = gets.chomp.to_f
 puts "Time in current home (in years):"
 years_in_home = gets.chomp.to_f
 
+#Storing yes/no info as boolean
 puts "Prefer neutral colors [yes/no]"
 neutral_input = gets.chomp.downcase
 if neutral_input == "yes" || neutral_input == "y";
@@ -55,6 +56,7 @@ elsif dark_input == "no" || dark_input == "n";
     prefer_dark = false
 end 
 
+#conversion to integer fails is user inputs '$' symbol
 puts "Approximate design budget (numbers only):"
 design_budget = gets.chomp.to_i
 
@@ -82,7 +84,7 @@ new_client_info = {
 
 }
 
-#Print hash to screen for user to review
+#Print hash to screen for user to review; uses .each iteration method to print has keys & values in user-friendly readable statements
 puts "Please review and confirm your responses below:"
 
 new_client_info.each do |detail, value|
@@ -105,12 +107,14 @@ loop do
     puts "Enter new response now:"
     updated_value = gets.chomp
 
+#Update hash key values with user inputted changes
     new_client_info[key_to_change.to_sym] = updated_value
 
     puts "You changed #{key_to_change} to #{updated_value}"
 
 end 
 
+# Print hash; use .each iterative method to print information in user-friendly readable statements
 puts "Thank you for filling out this new client intake form, you may view client's information below:"
 
 new_client_info.each do |detail, value|
