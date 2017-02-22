@@ -3,7 +3,7 @@ US_federal_gov = {
     highest_power: "U.S. Constitution",
 
     three_branches: {
-
+        
         legislative_branch: {
             congress: {
                 house_of_representatives: {
@@ -19,7 +19,7 @@ US_federal_gov = {
                             current_number: 435,
                             republican_reps: 238,
                             democratic_reps: 193,
-                            vacant: 4,
+                            vacant: 4
                         },
                     members_elected: true
                     },
@@ -35,7 +35,6 @@ US_federal_gov = {
                         'house administration', 'judiciary', 'natural resources', 
                         'oversight', 'rules', 'science, space & tech', 'small business', 
                         'transportation', 'veterans affairs', 'ways & means']
-
                 },
                 senate: {
                     chamber: 'upper',
@@ -73,16 +72,13 @@ US_federal_gov = {
                             ideology: 'unknown'
                         }
                     }
-                    }
-                },
+                }
+            },
 
                 smaller_departments: [ 'architect of the capitol', 
                     'U.S. Botanic Garden', 'government accountability office', 
                     'library of congress', 'congressional budget office']
-            }
-
         },
-
         executive_branch: {
             chief_leader: 'President',
             other_leader: 'Vice President',
@@ -90,11 +86,11 @@ US_federal_gov = {
                 'council of economic advisors', 'council on environmental quality', 'executive residence staff', 
                 'office of admin', 'office of management and budget', 'office of national drug policy', 
                 'office of science & tech policy', 'office of the US trade representative','office of the VP' ],
-            well_oiled_machine: false,
+            well_oiled_machine: false
         },
 
         judicial_branch: {
-            supreme_court: ['john roberts', 'anthony kennedy', 'clarence thomas',
+            supreme_court_justices: ['john roberts', 'anthony kennedy', 'clarence thomas',
             'ruth bader ginsberg', 'stephen breyer', 'samuel alito', 'sonia sotomayor',
             'elena kagan', 'the ghost of antonin scalia'],
 
@@ -103,11 +99,12 @@ US_federal_gov = {
                 'tax court', 'court of appeals for veterans claims'],
             officials_elected: false
         }
-    }
+    }    
+}
 
 # print a few individual pieces of deeply nested data from the structure, 
 # showing that you know how to use multiple indexes or hash keys (or both) to access nested items.
 
- p US_federal_gov[:three_branches][:legislative_branch][:congress][:senate][:political_parties]
-
+p US_federal_gov[:three_branches][:legislative_branch][:congress][:senate][:political_parties][:independents][:mascot]
+p US_federal_gov[:three_branches][:executive_branch][:executive_office_of_president][5]
 
