@@ -85,7 +85,13 @@ US_federal_gov = {
         },
 
         executive_branch: {
-
+            chief_leader: 'President',
+            other_leader: 'Vice President',
+            executive_office_of_president: ['white house office', 'national security council', 'council of economic advisors', 
+                'council on environmental quality', 'executive residence staff', 'office of admin', 'office of management and budget',
+                 'office of national drug policy', 'office of science & tech policy', 'office of the US trade representative',
+                  'office of the VP' ],
+            well_oiled_machine: false,
         },
 
         judicial_branch: {
