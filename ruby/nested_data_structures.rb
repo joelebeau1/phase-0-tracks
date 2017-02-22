@@ -10,8 +10,9 @@ US_federal_gov = {
                     chamer: 'lower',
                     members: {
                         non_voting_members: {
-                            at_large_delegates: ['American Samoan', 'D.C.', 'Guam',
-                                'Northern Mariana Islands', 'US Virgin Islands'],
+                            at_large_delegates: ['American Samoan', 
+                                'D.C.', 'Guam', 'Northern Mariana Islands', 
+                                'US Virgin Islands'],
                             resident_commissioner: 'Puerto Rican delegate'
                             },
                         voting_members: {
@@ -28,27 +29,27 @@ US_federal_gov = {
                         majority_leadership: ['majority leader', 'majority whip'],
                         minority_leadership: ['minority leader', 'minority whip']
                     },
-                    committees: ['agriculture', 'appropriations', 'armed services', 'budget',
-                     'education', 'energy and commerce', 'ethics', 'financial services', 'foreign affairs', 
-                     'homeland security', 'house administration', 'judiciary', 'natural resources', 'oversight', 
-                     'rules', 'science, space & tech', 'small business', 'transportation', 'veterans affairs', 'ways & means']
+                    committees: ['agriculture', 'appropriations', 'armed services', 
+                        'budget','education', 'energy and commerce', 'ethics', 
+                        'financial services', 'foreign affairs', 'homeland security', 
+                        'house administration', 'judiciary', 'natural resources', 
+                        'oversight', 'rules', 'science, space & tech', 'small business', 
+                        'transportation', 'veterans affairs', 'ways & means']
 
                 },
                 senate: {
                     chamber: 'upper',
                     senators: 100,
+
                     leadership: {
                         senate_president: 'U.S. Vice President',
-                        chief_admin: 'Secretary of State',
-                        party_leadership: {
-                            majority_leadership: ['majority leader', 'majority whip'],
-                            minority_leadership: ['minority leader', 'minority whip']
+                        chief_admin: 'Secretary of State'
                         },
 
                     political_parties: {
                         republicans: {
                             rep_senators: 52,
-                            rep_officers: :majority_leadership,
+                            leadership: ['majority leader', 'majority whip'],
                             mascot: 'elephant',
                             color: 'red',
                             alias: 'Grand Old Party',
@@ -57,7 +58,7 @@ US_federal_gov = {
 
                         democrats: {
                             dem_senators: 48,
-                            dem_officers: :minority_leadership,
+                            leadership: ['minority leader', 'minority whip'],
                             mascot: 'donkey',
                             color: 'blue',
                             alias: 'dems',
@@ -69,17 +70,15 @@ US_federal_gov = {
                             ind_officers: nil,
                             mascot: 'Bernie Sanders',
                             color: 'gray?',
-                            alias: 'what Bernie Sanders was before he ran for President',
-                            ideology: 'unknown',
+                            ideology: 'unknown'
                         }
                     }
                     }
+                },
 
-
-                    },
-                smaller_departments: [ 'architect of the capitol', 'U.S. Botanic Garden', 
-                    'government accountability office', 'library of congress', 'congressional budget office'
-                ]
+                smaller_departments: [ 'architect of the capitol', 
+                    'U.S. Botanic Garden', 'government accountability office', 
+                    'library of congress', 'congressional budget office']
             }
 
         },
@@ -87,10 +86,10 @@ US_federal_gov = {
         executive_branch: {
             chief_leader: 'President',
             other_leader: 'Vice President',
-            executive_office_of_president: ['white house office', 'national security council', 'council of economic advisors', 
-                'council on environmental quality', 'executive residence staff', 'office of admin', 'office of management and budget',
-                 'office of national drug policy', 'office of science & tech policy', 'office of the US trade representative',
-                  'office of the VP' ],
+            executive_office_of_president: ['white house office', 'national security council', 
+                'council of economic advisors', 'council on environmental quality', 'executive residence staff', 
+                'office of admin', 'office of management and budget', 'office of national drug policy', 
+                'office of science & tech policy', 'office of the US trade representative','office of the VP' ],
             well_oiled_machine: false,
         },
 
@@ -99,20 +98,16 @@ US_federal_gov = {
             'ruth bader ginsberg', 'stephen breyer', 'samuel alito', 'sonia sotomayor',
             'elena kagan', 'the ghost of antonin scalia'],
 
-            lower_courts: ['court of appeals', 'district courts', 
-                'court of international trade', 'court of federal claims', 
-                'court of appeals for the armed forces', 'tax court', 
-                'court of appeals for veterans claims'
-                ],
-
+            lower_courts: ['court of appeals', 'district courts', 'court of international trade', 
+                'court of federal claims', 'court of appeals for the armed forces', 
+                'tax court', 'court of appeals for veterans claims'],
             officials_elected: false
         }
-
-
     }
-}
-
-
 
 # print a few individual pieces of deeply nested data from the structure, 
 # showing that you know how to use multiple indexes or hash keys (or both) to access nested items.
+
+ p US_federal_gov[:three_branches][:legislative_branch][:congress][:senate][:political_parties]
+
+
