@@ -106,5 +106,5 @@ US_federal_gov = {
 # showing that you know how to use multiple indexes or hash keys (or both) to access nested items.
 
 p US_federal_gov[:three_branches][:legislative_branch][:congress][:senate][:political_parties][:independents][:mascot]
-p US_federal_gov[:three_branches][:executive_branch][:executive_office_of_president][5]
+p US_federal_gov[:three_branches][:executive_branch][:executive_office_of_president][5] + US_federal_gov[:three_branches][:judicial_branch][:lower_courts][2]
 
