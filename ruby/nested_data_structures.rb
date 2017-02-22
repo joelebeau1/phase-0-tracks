@@ -6,12 +6,38 @@ US_federal_gov = {
 
         legislative_branch: {
             congress: {
-                house_of_representatives: [
+                house_of_representatives: {
+                    chamer: 'lower',
+                    members: {
+                        non_voting_members: {
+                            at_large_delegates: ['American Samoan', 'D.C.', 'Guam',
+                                'Northern Mariana Islands', 'US Virgin Islands'],
+                            resident_commissioner: 'Puerto Rican delegate'
+                            },
+                        voting_members: {
+                            current_number: 435,
+                            republican_reps: 238,
+                            democratic_reps: 193,
+                            vacant: 4,
+                        },
+                    members_elected: true
+                    },
 
-                ],
+                    leadership: {
+                        house_leader: 'Speaker of the House',
+                        majority_leadership: ['majority leader', 'majority whip'],
+                        minority_leadership: ['minority leader', 'minority whip']
+                    },
+                    committees: ['agriculture', 'appropriations', 'armed services', 'budget',
+                     'education', 'energy and commerce', 'ethics', 'financial services', 'foreign affairs', 
+                     'homeland security', 'house administration', 'judiciary', 'natural resources', 'oversight', 
+                     'rules', 'science, space & tech', 'small business', 'transportation', 'veterans affairs', 'ways & means']
+
+                },
                 senate: {
+                    chamber: 'upper',
                     senators: 100,
-                    senate_leadership: {
+                    leadership: {
                         senate_president: 'U.S. Vice President',
                         chief_admin: 'Secretary of State',
                         party_leadership: {
