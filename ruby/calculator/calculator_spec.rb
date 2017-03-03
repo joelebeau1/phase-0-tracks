@@ -24,4 +24,9 @@ describe Calculator do
   it "multiplies two integers" do
     expect(calculator.multiply(2,3)).to eq 6
   end
+
+# Add test for a divide method -> run to confirm it fails -> add divide method to .rb file
+  it "divides two integers" do
+    expect(calculator.divide(4,2)).to eq 2
+    end 
 end
