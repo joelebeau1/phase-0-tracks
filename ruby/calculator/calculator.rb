@@ -10,4 +10,9 @@ class Calculator
   def multiply(x,y)
     x * y
   end
+
+# Add code for divide method
+  def divide(x,y)
+    x/y
+  end
 end
