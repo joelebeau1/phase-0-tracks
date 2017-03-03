@@ -1,0 +1,13 @@
+kitchen
+living room
+bathroom
+den
+bedroom
+done
+2
+sink
+0
+stove
+4
+bed
+done
