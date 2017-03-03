@@ -24,11 +24,14 @@ class Santa
 
 # Add 3 attribute changing methods:
     #celebrate_birthday should age Santa by 1 year
-def celebrate_birthday(age)
-    age = @age += 1
-end 
+    def celebrate_birthday(age)
+        age = @age += 1
+    end 
 
     # get_mad_at takes reindeer's name as argument and moves him to last in ranking
+    def get_mad_at(reindeer)
+        
+    end
 
     # @gender attribute needs setter method allowing it to be reassigned outside class
 
@@ -48,9 +51,13 @@ end
 # Driver code testing attribute changes
 
 st_nick = Santa.new("male", "white")
+
 p st_nick.celebrate_birthday(@age)
 p st_nick.celebrate_birthday(@age)
 p st_nick.celebrate_birthday(@age)
+
+p st_nick.get_mad_at
+
 
 
 
