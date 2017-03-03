@@ -1,7 +1,11 @@
 # Define santa class
+# 3 instance methods:
+    # Speak method
+    # Eat cookies method
+    #Initialize method
 class Santa
 
-    def initialize
+    def initialize(gender, ethnicity)
         puts "Initializing new Santa..."
         @gender = gender
         @ethnicity = ethnicity
@@ -17,14 +21,12 @@ class Santa
     def eat_milk_and_cookies(cookie)
         puts "That was a good #{cookie} cookie!"
     end 
-
-
 end
-# 3 instance methods:
-    # Speak method
-    # Eat cookies method
-    #Initialize method
 
-chris_kringle = Santa.new
-chris_kringle.speak
-chris_kringle.eat_milk_and_cookies("peanut butter")
+santas = []
+example_genders = ["agender", "female", "bigender", "male", "female", "gender fluid", "N/A"]
+example_ethnicities = ["black", "Latino", "white", "Japanese-African", "prefer not to say", "Mystical Creature (unicorn)", "N/A"]
+example_genders.length.times do |i|
+  santas << Santa.new(example_genders[i], example_ethnicities[i])
+  puts "Added new #{example_genders[i]}, #{example_ethnicities[i]} Santa"
+end
