@@ -30,12 +30,23 @@ class Santa
 
     # get_mad_at takes reindeer's name as argument and moves him to last in ranking
     def get_mad_at(reindeer)
-        
+        @reindeer_ranking << @reindeer_ranking.delete(reindeer)
     end
 
     # @gender attribute needs setter method allowing it to be reassigned outside class
+    def gender=(new_gender)
+        @gender = new_gender
+    end
 
 # Add two getter methods to return 1) @age and 2) @ethnicity
+
+    def age
+        @age
+    end
+
+    def ethnicity
+        @ethnicity
+    end
 end
 
 #Different ways of initializing instances of Santa class
@@ -56,7 +67,13 @@ p st_nick.celebrate_birthday(@age)
 p st_nick.celebrate_birthday(@age)
 p st_nick.celebrate_birthday(@age)
 
-p st_nick.get_mad_at
+p st_nick.get_mad_at("Cupid")
+p st_nick.get_mad_at("Rudolph")
+
+st_nick.gender = "bicurious"
+p st_nick.ethnicity
+p st_nick.age
+
 
 
 
