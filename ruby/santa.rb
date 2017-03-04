@@ -16,6 +16,7 @@ class Santa
         @reindeer_ranking = ["Rudolph", "Dasher", "Dancer", "Prancer", 
             "Vixen", "Comet", "Cupid", "Donner", "Blitzen"]
         @age = rand(0..40)
+        puts "New santa's gender is #{gender}, ethnicity is #{ethnicity}, age is #{age}, and reindeer preference (from first to last) is #{@reindeer_ranking}"
     end 
 
     def speak
@@ -49,14 +50,11 @@ def santa_automater(i)
     example_genders = ["agender", "female", "bigender", "male", "female", "gender fluid", "N/A"]
     example_ethnicities = ["black", "Latino", "white", "Japanese-African", "prefer not to say", "Mystical Creature (unicorn)", "N/A"]
     i.times do
-        p Santa.new(example_genders.sample, example_ethnicities.sample)
+        Santa.new(example_genders.sample, example_ethnicities.sample)
+
     end
 
 end 
-
-
-
-
 
 # Print out attributes of each Santa using instance methods
 
@@ -86,7 +84,7 @@ p st_nick.gender
 p st_nick.ethnicity
 p st_nick.age
 
-p santa_automater(5)
+santa_automater(5)
 
 
 
