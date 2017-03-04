@@ -4,6 +4,10 @@
     # Eat cookies method
     #Initialize method
 class Santa
+# Add two getter methods to return 1) @age and 2) @ethnicity
+# @gender attribute needs setter method allowing it to be reassigned outside class
+    attr_reader :age, :ethnicity
+    attr_accessor :gender
 
     def initialize(gender, ethnicity)
         puts "Initializing new Santa..."
@@ -32,21 +36,6 @@ class Santa
     def get_mad_at(reindeer)
         @reindeer_ranking << @reindeer_ranking.delete(reindeer)
     end
-
-    # @gender attribute needs setter method allowing it to be reassigned outside class
-    def gender=(new_gender)
-        @gender = new_gender
-    end
-
-# Add two getter methods to return 1) @age and 2) @ethnicity
-
-    def age
-        @age
-    end
-
-    def ethnicity
-        @ethnicity
-    end
 end
 
 #Different ways of initializing instances of Santa class
@@ -71,6 +60,7 @@ p st_nick.get_mad_at("Cupid")
 p st_nick.get_mad_at("Rudolph")
 
 st_nick.gender = "bicurious"
+p st_nick.gender
 p st_nick.ethnicity
 p st_nick.age
 
