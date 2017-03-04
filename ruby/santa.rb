@@ -15,7 +15,7 @@ class Santa
         @ethnicity = ethnicity
         @reindeer_ranking = ["Rudolph", "Dasher", "Dancer", "Prancer", 
             "Vixen", "Comet", "Cupid", "Donner", "Blitzen"]
-        @age = 0
+        @age = rand(0..40)
     end 
 
     def speak
@@ -37,6 +37,28 @@ class Santa
         @reindeer_ranking << @reindeer_ranking.delete(reindeer)
     end
 end
+
+# Program to create lots of Santas (algorithm)
+    # Loop to initialize an inputted number of new Santas
+    # Use arrays of example genders/ethnicities to create Santas with random genders/ethnicities
+    # Find randomization method in Array docs
+
+# Set new Santas age to random number 0-40
+    # Create array of possible ages 0-40 and use randomization when initializing
+def santa_automater(i)
+    example_genders = ["agender", "female", "bigender", "male", "female", "gender fluid", "N/A"]
+    example_ethnicities = ["black", "Latino", "white", "Japanese-African", "prefer not to say", "Mystical Creature (unicorn)", "N/A"]
+    i.times do
+        p Santa.new(example_genders.sample, example_ethnicities.sample)
+    end
+
+end 
+
+
+
+
+
+# Print out attributes of each Santa using instance methods
 
 #Different ways of initializing instances of Santa class
 
@@ -63,6 +85,10 @@ st_nick.gender = "bicurious"
 p st_nick.gender
 p st_nick.ethnicity
 p st_nick.age
+
+p santa_automater(5)
+
+
 
 
 
