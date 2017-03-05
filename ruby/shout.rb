@@ -33,3 +33,13 @@ module Shout
     end
 
 end 
+
+class Toddler
+
+  include Shout 
+end 
+
+class Teenager
+
+  include Shout
+end
