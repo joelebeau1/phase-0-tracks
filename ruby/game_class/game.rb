@@ -55,9 +55,9 @@ end
         # Index in progress message to be replaced with correct letter
 
 def track_progress(word, guess, correct_guess)
-    @progress_message = ("-" * word.length)
+    @progress_message = (" - " * word.length)
     if @correct_guess == true
-        @progress_message.sub!(word.index(guess), guess)
+        @progress_message = @progress_message.gsub!(word.index(guess), guess)
         puts "Correct! The secret word is #{@progress_message}"
     else puts "Incorrect, guess again!"
     end
@@ -73,15 +73,15 @@ def check_for_victory(progress, secret)
     end
 end
 
-# Defeat condition
-    # Guess count == guess limit and progress != secret word
+# # Defeat condition
+#     # Guess count == guess limit and progress != secret word
 
-def check_for_defeat(count, limit)
-    if count == limit
-        @defeat = true
-    else @defeat = false
-    end
-end
+# def check_for_defeat(count, limit)
+#     if count == limit
+#         @defeat = true
+#     else @defeat = false
+#     end
+# end
 
 end
  
@@ -89,17 +89,36 @@ end
 # DRIVER CODE / UI-------------------------------------
 
 game = WordGame.new
+@guess_count = 0
 
 # Player 1 enters secret word
 puts "Player 1, please enter a secret word:"
 @secret_word = gets.chomp.downcase
-game.calculate_limit(@secret_word)
+@guess_limit = game.calculate_limit(@secret_word)
+
 
 # Tell players the number of guesses allowed
 puts "Player 2, you have #{game.calculate_limit(@secret_word)} guesses to guess the secret word"
-
+puts "The secret word is #{@progress_message}"
 
 # Loop:
+
+until @guess_count == @guess_limit
+    @guess_count += 1
+    puts "Player 2, enter a letter to guess"
+    @guessed_letter = gets.chomp.downcase
+
+    game.check_guess(@secret_word, @guessed_letter)
+    game.track_progress(@secret_word, @guessed_letter, @correct_guess)
+    puts "You have #{@guess_limit - @guess_count} guesses left"
+
+end 
+
+if game.check_for_victory(@progress_message, @secret_word)
+    puts "Congratulations! You guessed the word!"
+else puts "Oh no, you couldn't guess the word!"
+end
+
     # Player 2 enters guess
     # Guess is correct or wrong
     # Print out feedback message
