@@ -21,7 +21,7 @@
 
 class WordGame
 
-attr_accessor :secret_word, :guess_count, :guess_limit, :victory, :guessed_letter, :progress_message, :correct_guess
+attr_accessor :secret_word, :guess_count, :guess_limit, :victory, :guessed_letter, :progress_message, :correct_guess, :new_progress_message
 
 def initialize
     @secret_word = ""
@@ -33,7 +33,7 @@ def initialize
 end
 
 def calculate_limit(word)
-    @guess_limit = (word.length * 3)
+    @guess_limit = (word.length * 2)
 end
 
 def check_guess(word, guess)
@@ -50,6 +50,7 @@ def set_progress_msg(word)
 end
 
 def track_progress(word, guess, correct_guess, progress_message)
+    
     if @correct_guess == true
 
         @index_of_correct_letter = word.index(guess)
@@ -116,8 +117,9 @@ until @guess_count == @guess_limit
 
     @guess_count += 1
 
-    puts "Player 2, enter a letter to guess"
+    puts "Player 2, enter a letter to guess, or type 'qq to quit"
     @guessed_letter = gets.chomp.downcase
+    break if @guessed_letter == "qq"
 
     puts ""
     game.check_guess(@secret_word, @guessed_letter)
