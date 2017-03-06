@@ -19,8 +19,6 @@
 #  BUSINESS LOGIC---------------------------------
 # Game class
 
-# Variables: guess limit, guessed letter, feedback message,
-
 def WordGame
 
 def initialize
@@ -28,15 +26,32 @@ def initialize
     @guess_count = 0
     @victory = false
     @defeat = false
+    @guess_limit = 0
+    @guessed_letter = ""
+    @feedback_message = ""
+    @correct_guess = false
 end
 
-# User guesses as letters
+def calculate_limit(word)
+    @guess_limit = @secret_word.length
+end
 
-# Guess limit number = secret word length
-
-# Check if guess is correct or wrong
+def check_guess(word, guess)
+    if word.include? guess
+        @correct_guess = true
+    else 
+        @correct_guess = false
+    end
+end
 
 # Guesser feedback/progress:
+
+def track_progress(word, guess, correct_guess)
+    @progress_message = ("-" * word.length)
+    if @correct_guess = true
+        # Replace "-" at index of word[guess] with guess
+
+
     # Starts as "- - - -" same length as secret word, sub "-" for letters
     # Updates with correct guesses; sub correct letter for "-" in correct letter spot
     # Need index values for:
