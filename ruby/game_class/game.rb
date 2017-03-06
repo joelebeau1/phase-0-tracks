@@ -19,7 +19,9 @@
 #  BUSINESS LOGIC---------------------------------
 # Game class
 
-def WordGame
+class WordGame
+
+attr_accessor :secret_word, :guess_count, :guess_limit, :victory, :defeat, :guessed_letter, :feedback_message, :correct_guess
 
 def initialize
     @secret_word = ""
@@ -33,7 +35,7 @@ def initialize
 end
 
 def calculate_limit(word)
-    @guess_limit = @secret_word.length
+    @guess_limit = word.length
 end
 
 def check_guess(word, guess)
@@ -45,36 +47,57 @@ def check_guess(word, guess)
 end
 
 # Guesser feedback/progress:
-
-def track_progress(word, guess, correct_guess)
-    @progress_message = ("-" * word.length)
-    if @correct_guess = true
-        # Replace "-" at index of word[guess] with guess
-
-
+  # Replace "-" at index of word[guess] with guess
     # Starts as "- - - -" same length as secret word, sub "-" for letters
     # Updates with correct guesses; sub correct letter for "-" in correct letter spot
     # Need index values for:
         # Correct letter guessed in secret word: i.e. "g" in "dog" = [2]
         # Index in progress message to be replaced with correct letter
 
-# Print feedback/progress method
+def track_progress(word, guess, correct_guess)
+    @progress_message = ("-" * word.length)
+    if @correct_guess == true
+        @progress_message.sub!(word.index(guess), guess)
+        puts "Correct! The secret word is #{@progress_message}"
+    else puts "Incorrect, guess again!"
+    end
+end
 
 # Victory condition
     # When progress == secret word, victorious
 
+def check_for_victory(progress, secret)
+    if progress == secret
+        @victory = true
+    else @victory = false
+    end
+end
+
 # Defeat condition
     # Guess count == guess limit and progress != secret word
+
+def check_for_defeat(count, limit)
+    if count == limit
+        @defeat = true
+    else @defeat = false
+    end
+end
 
 end
  
 
 # DRIVER CODE / UI-------------------------------------
 
+game = WordGame.new
+
 # Player 1 enters secret word
-# Store user input for secret word
+puts "Player 1, please enter a secret word:"
+@secret_word = gets.chomp.downcase
+game.calculate_limit(@secret_word)
 
 # Tell players the number of guesses allowed
+puts "Player 2, you have #{game.calculate_limit(@secret_word)} guesses to guess the secret word"
+
 
 # Loop:
     # Player 2 enters guess
