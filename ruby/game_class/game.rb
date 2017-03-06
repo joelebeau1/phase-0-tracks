@@ -53,23 +53,28 @@ def track_progress(word, guess, correct_guess, progress_message)
     if @correct_guess == true
 
         @index_of_correct_letter = word.index(guess)
-        @progress_message = @progress_message.sub!(@progress_message[@index_of_correct_letter], guess)
+        @new_progress_message = @progress_message.sub!(@progress_message[@index_of_correct_letter], guess)
 
-        puts "Correct! The secret word is #{@progress_message}"
+        puts "Correct! The secret word is #{@new_progress_message}"
 
     else puts "Incorrect, guess again!"
     end
+
+    p @progress_message
+    p @new_progress_message
+    p word
 end
+
+def check_for_victory(word, new_progress_message)
+        if word == @new_progress_message
+         @victory = true
+         @victory
+        end
+end
+
 
 # Victory condition
     # When progress == secret word, victorious
-
-def check_for_victory(progress, secret)
-    if progress == secret
-        @victory = true
-    else @victory = false
-    end
-end
 
 # # Defeat condition
 #     # Guess count == guess limit and progress != secret word
@@ -95,7 +100,7 @@ puts "Player 1, please enter a secret word:"
 puts ""
 
 @guess_limit = game.calculate_limit(@secret_word)
-p game.set_progress_msg(@secret_word)
+game.set_progress_msg(@secret_word)
 
 # Tell players the number of guesses allowed
 puts "Player 2, you have #{game.calculate_limit(@secret_word)} guesses to guess the secret word"
@@ -119,10 +124,8 @@ until @guess_count == @guess_limit
     game.track_progress(@secret_word, @guessed_letter, @correct_guess, @progress_message)
     puts ""
 
-    game.check_for_victory(@progress_message, @secret_word)
-
-    if @progress_message == @secret_word
-        puts "Congratulations! You guessed the word!"
+    if game.check_for_victory(@secret_word, @new_progress_message) == true
+        puts "Congratulations! You guessed the word! The word is #{@secret_word}"
         break
     end
 
