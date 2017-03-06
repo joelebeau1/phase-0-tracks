@@ -37,11 +37,12 @@ def calculate_limit(word)
 end
 
 def check_guess(word, guess)
-    if word.include? guess
-        @correct_guess = true
-    else 
-        @correct_guess = false
-    end
+  if word.include? guess
+     @correct_guess = true
+
+  elsif !word.include? guess
+    @correct_guess = false
+  end
 end
 
 def set_progress_msg(word)
@@ -62,16 +63,18 @@ def track_progress(word, guess, correct_guess, progress_message)
         @new_progress_message = @inserted_prog_msg
 
         puts "Correct! The secret word is #{@new_progress_message}"
+        @new_progress_message
 
-    else puts "Incorrect! Guess again, the secret word is #{@new_progress_message} "
+    else puts "Incorrect! Guess again, the secret word is #{@new_progress_message}"
+        @new_progress_message
+
     end
-
 end
 
 def check_for_victory(word, new_progress_message)
         if word == @new_progress_message
          @victory = true
-         @victory
+         true
         end
 end
 
