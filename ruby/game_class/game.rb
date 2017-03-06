@@ -21,16 +21,14 @@
 
 class WordGame
 
-attr_accessor :secret_word, :guess_count, :guess_limit, :victory, :defeat, :guessed_letter, :feedback_message, :correct_guess
+attr_accessor :secret_word, :guess_count, :guess_limit, :victory, :guessed_letter, :progress_message, :correct_guess
 
 def initialize
     @secret_word = ""
     @guess_count = 0
     @victory = false
-    @defeat = false
     @guess_limit = 0
     @guessed_letter = ""
-    @feedback_message = ""
     @correct_guess = false
 end
 
@@ -46,19 +44,19 @@ def check_guess(word, guess)
     end
 end
 
-# Guesser feedback/progress:
-  # Replace "-" at index of word[guess] with guess
-    # Starts as "- - - -" same length as secret word, sub "-" for letters
-    # Updates with correct guesses; sub correct letter for "-" in correct letter spot
-    # Need index values for:
-        # Correct letter guessed in secret word: i.e. "g" in "dog" = [2]
-        # Index in progress message to be replaced with correct letter
+def set_progress_msg(word)
+    @progress_message = ("-" * word.length)
+    @progress_message
+end
 
-def track_progress(word, guess, correct_guess)
-    @progress_message = (" - " * word.length)
+def track_progress(word, guess, correct_guess, progress_message)
     if @correct_guess == true
-        @progress_message = @progress_message.gsub!(word.index(guess), guess)
+
+        @index_of_correct_letter = word.index(guess)
+        @progress_message = @progress_message.sub!(@progress_message[@index_of_correct_letter], guess)
+
         puts "Correct! The secret word is #{@progress_message}"
+
     else puts "Incorrect, guess again!"
     end
 end
@@ -94,30 +92,43 @@ game = WordGame.new
 # Player 1 enters secret word
 puts "Player 1, please enter a secret word:"
 @secret_word = gets.chomp.downcase
-@guess_limit = game.calculate_limit(@secret_word)
+puts ""
 
+@guess_limit = game.calculate_limit(@secret_word)
+p game.set_progress_msg(@secret_word)
 
 # Tell players the number of guesses allowed
 puts "Player 2, you have #{game.calculate_limit(@secret_word)} guesses to guess the secret word"
-puts "The secret word is #{@progress_message}"
+puts ""
 
+puts "The secret word is #{game.set_progress_msg(@secret_word)}"
+puts ""
 # Loop:
 
 until @guess_count == @guess_limit
+
     @guess_count += 1
+
     puts "Player 2, enter a letter to guess"
     @guessed_letter = gets.chomp.downcase
 
+    puts ""
     game.check_guess(@secret_word, @guessed_letter)
-    game.track_progress(@secret_word, @guessed_letter, @correct_guess)
+    puts ""
+
+    game.track_progress(@secret_word, @guessed_letter, @correct_guess, @progress_message)
+    puts ""
+
+    game.check_for_victory(@progress_message, @secret_word)
+
+    if @progress_message == @secret_word
+        puts "Congratulations! You guessed the word!"
+        break
+    end
+
     puts "You have #{@guess_limit - @guess_count} guesses left"
-
+    puts ""
 end 
-
-if game.check_for_victory(@progress_message, @secret_word)
-    puts "Congratulations! You guessed the word!"
-else puts "Oh no, you couldn't guess the word!"
-end
 
     # Player 2 enters guess
     # Guess is correct or wrong
