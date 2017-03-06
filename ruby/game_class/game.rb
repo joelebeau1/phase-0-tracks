@@ -21,7 +21,7 @@
 
 class WordGame
 
-attr_accessor :secret_word, :guess_count, :guess_limit, :victory, :guessed_letter, :progress_message, :correct_guess, :new_progress_message, :past_guesses
+attr_accessor :secret_word, :guess_count, :guess_limit, :victory, :guessed_letter, :progress_message, :correct_guess, :new_progress_message, :past_guesses,:word_array
 
 def initialize
   @secret_word = ""
@@ -114,7 +114,7 @@ until @guess_count == @guess_limit
 
   if @past_guesses.include? @guessed_letter
     @guess_count -= 1
-    puts "you already guessed #{guessed_letter}, so you can retry this guess"
+    puts "you already guessed #{@guessed_letter}, so you can retry this guess"
   end
 
   @past_guesses << @guessed_letter
