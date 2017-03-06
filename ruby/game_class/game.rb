@@ -21,7 +21,7 @@
 
 class WordGame
 
-attr_accessor :secret_word, :guess_count, :guess_limit, :victory, :guessed_letter, :progress_message, :correct_guess, :new_progress_message
+attr_accessor :secret_word, :guess_count, :guess_limit, :victory, :guessed_letter, :progress_message, :correct_guess, :new_progress_message, :past_guesses
 
 def initialize
   @secret_word = ""
@@ -30,6 +30,7 @@ def initialize
   @guess_limit = 0
   @guessed_letter = ""
   @correct_guess = false
+  @past_guesses = []
 end
 
 # Set a limit on the number of guesses based on secret word length: 2 guesses per letter
@@ -89,6 +90,7 @@ end
 
 game = WordGame.new
 @guess_count = 0
+@past_guesses = []
 
 puts "Player 1, please enter a secret word:"
 @secret_word = gets.chomp.downcase
@@ -109,6 +111,13 @@ until @guess_count == @guess_limit
 
   puts "Player 2, enter a letter to guess, or type 'qq to quit"
   @guessed_letter = gets.chomp.downcase
+
+  if @past_guesses.include? @guessed_letter
+    @guess_count -= 1
+    puts "you already guessed #{guessed_letter}, so you can retry this guess"
+  end
+
+  @past_guesses << @guessed_letter
 
 # Allow user to quit early
   break if @guessed_letter == "qq"
