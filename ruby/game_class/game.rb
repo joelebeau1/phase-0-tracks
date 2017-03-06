@@ -32,10 +32,10 @@ class WordGame
         @defeat = false
     end
 
-    # def print_feedback(word)
-    #     @feedback_msg = (" - " * @secret_word.length)
+    def print_feedback(word)
+        @feedback_msg = (" - " * word.length)
 
-    # end
+    end
 
     def calculate_limit(word)
         @guess_limit = word.length
@@ -60,13 +60,12 @@ puts "Player 1, please enter a secret word!"
 # Tell players the number of guesses allowed
 puts "Player 2, you have #{game.calculate_limit(@secret_word)} guesses"
 
-#Player 2 enters guesses
+#Player 2 enters guesses- loop?
+
+puts "The secret word is #{game.print_feedback(@secret_word)}"
+
 puts "Player 2, please enter a letter to guess"
 @letter_guessed = gets.chomp.downcase
-
-p @secret_word
-p @guess_limit
-p @letter_guessed
 
 # Player feedback on state of secret word
 
