@@ -19,54 +19,52 @@
 #  BUSINESS LOGIC---------------------------------
 # Game class
 
-# Getter method variables: secret word, guess limit, victory/defeat conditionals
+# Variables: guess limit, guessed letter, feedback message,
 
-# Setter method variables: guess count, guessed letter, feedback message
+def WordGame
 
-class WordGame
-    attr_accessor :secret_word, :guess_count, :letter_guessed, :guess_limit, :victory, :defeat, :feedback_msg
+def initialize
+    @secret_word = ""
+    @guess_count = 0
+    @victory = false
+    @defeat = false
+end
 
-    def initialize
-        @guess_count = 0
-        @victory = false
-        @defeat = false
-    end
+# User guesses as letters
 
-    def print_feedback(word)
-        @feedback_msg = (" - " * word.length)
+# Guess limit number = secret word length
 
-    end
+# Check if guess is correct or wrong
 
-    def calculate_limit(word)
-        @guess_limit = word.length
-    end
+# Guesser feedback/progress:
+    # Starts as "- - - -" same length as secret word, sub "-" for letters
+    # Updates with correct guesses; sub correct letter for "-" in correct letter spot
+    # Need index values for:
+        # Correct letter guessed in secret word: i.e. "g" in "dog" = [2]
+        # Index in progress message to be replaced with correct letter
 
-    # def check_guess
+# Print feedback/progress method
 
-    # end
+# Victory condition
+    # When progress == secret word, victorious
 
-end 
+# Defeat condition
+    # Guess count == guess limit and progress != secret word
+
+end
+ 
 
 # DRIVER CODE / UI-------------------------------------
-puts "Welcome to the Game of Words!"
-game = WordGame.new
 
 # Player 1 enters secret word
-puts "Player 2, please close your eyes!"
-puts "Player 1, please enter a secret word!"
-
-@secret_word = gets.chomp.downcase
+# Store user input for secret word
 
 # Tell players the number of guesses allowed
-puts "Player 2, you have #{game.calculate_limit(@secret_word)} guesses"
 
-#Player 2 enters guesses- loop?
+# Loop:
+    # Player 2 enters guess
+    # Guess is correct or wrong
+    # Print out feedback message
+    # End loop and print victory message is victory conditions met
+    # End loop and print defeat message after guess count = guess limit and victory conditions not met
 
-puts "The secret word is #{game.print_feedback(@secret_word)}"
-
-puts "Player 2, please enter a letter to guess"
-@letter_guessed = gets.chomp.downcase
-
-# Player feedback on state of secret word
-
-# Congrats/taunting message
