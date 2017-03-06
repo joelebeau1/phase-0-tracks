@@ -99,13 +99,12 @@ end
 puts "If there is a response you'd like to change, enter which value you want to update (name, number_of_children, approximate_budget etc.),
 then enter the updated information when prompted. When you are finished, or if you have no changes to make, type 'none' to skip this step"
 
-loop do 
+key_to_change = ""
+
+while key_to_change != "none"
     puts "Which value would you like to update?"
     key_to_change = gets.chomp.downcase
-        
-        if key_to_change == "none";
-                break
-            end 
+    break xif key_to_change == "none"
 
     puts "Enter new response now:"
     updated_value = gets.chomp
