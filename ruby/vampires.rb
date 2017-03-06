@@ -29,13 +29,8 @@ until survey_reps == 0
   allergy_input = nil
   until allergy_input == "done" || allergy_input == "sunshine"
     puts "Please list all allergies one at a time, and enter 'done' when you are finished"
-    
     allergy_input = gets.chomp.downcase
-    
-    if allergy_input == "sunshine"
-    puts "Probably a vampire!"
-    end
-    
+    break if allergy_input == "sunshine"
   end 
   
   
@@ -43,29 +38,28 @@ until survey_reps == 0
   puts "SURVEY RESULTS:"
   
   # #Detection Logic
-  unlikely_vampire = false
-  possible_vampire = false
-  probable_vampire = false
-  definite_vampire = false
+ vampire_status = ""
   
-  if employee_age == real_age && garlic_preference == "Y";
-    
-    unlikely_vampire = true
-  end
-    
-  if ((garlic_preference == "N") && (health_plan == "N") && (real_age != employee_age));
-    
-    probable_vampire = true
-    
+  if allergy_input == 'sunshine'
+    vampire_status = "Probably a vampire!"
+
+  elsif employee_name == "DRAKE CULA" || employee_name == "TU FANG";
+    vampire_status = "Definitely a vampire, run away!"  
+
+  elsif ((garlic_preference == "N") && (health_plan == "N") && (real_age != employee_age));
+    vampire_status = "Almost certainly a vampire!"
+
   elsif ((garlic_preference = "N" || health_plan = "N") && (real_age != employee_age));
-    
-    possible_vampire = true
+    vampire_status = "Probably a vampire"
+
+  elsif employee_age == real_age && garlic_preference == "Y";
+    vampire_status = "Most likely not a vampire"
+
+  else vampire_status = "TBD"
+
   end 
-  
-  if employee_name == "DRAKE CULA" || employee_name == "TU FANG";
-    
-    definite_vampire = true
-  end
+
+  puts vampire_status
   
   #debugging block
   # p unlikely_vampire
@@ -73,21 +67,10 @@ until survey_reps == 0
   # p probable_vampire
   # p definite_vampire
   
-  if definite_vampire == true;
-    puts "Definitely a vampire!"
-  
-  elsif unlikely_vampire == true;
-    puts "Most likely not a vampire!"
-    
-  elsif probable_vampire == true;
-    puts "Almost certainly a vampire!"
-  
-  elsif possible_vampire == true;
-    puts "Probably a vampire!"
-  end 
 puts "-------------------------------------------------"
 
-survey_reps = survey_reps -1
+survey_reps -= 1
+
 puts "Remaining interview candidates: #{survey_reps}"
 end
 
