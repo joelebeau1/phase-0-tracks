@@ -1,8 +1,5 @@
 # Wedding gift & thank-you card tracker
 
-
-# Allows user to look-up by guest name, gift, card_sent status, or to view the whole table
-
 require 'sqlite3'
 require 'faker'
 
@@ -26,6 +23,29 @@ end
 
 # add_guest(db, 'Joe LeBeau', '$500 cash', 'Y')
 
+# Populate table with fake guests & gifts
 50.times do 
     add_guest(db, Faker::Name.name, Faker::Commerce.product_name, "no" )    
 end
+
+$GUESTS = db.execute('SELECT * FROM guests')
+
+def guest_lookup(user_guest)
+  $GUESTS.each do |guest|
+    if guest[1] == user_guest
+        puts "#{guest[1]} gave a #{guest[2]}. Thank You card status = #{guest[3]}"
+    else nil
+    end
+  end
+end
+
+# USER INTERFACE--------------------------------
+
+# Allows user to look-up by guest name, gift, card_sent status, or to view the whole table
+user_guest = ""
+until user_guest == 'none'
+puts "Which guest would you like to look up? Type 'none' to exit."
+user_guest = gets.chomp
+guest_lookup(user_guest)
+end
+
