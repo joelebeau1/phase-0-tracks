@@ -24,4 +24,8 @@ def add_guest(db, name, gift, card_sent)
   db.execute('INSERT INTO guests (name, gift, card_sent) VALUES (?,?,?)', [name, gift, card_sent])
 end 
 
-add_guest(db, 'Joe LeBeau', '$500 cash', 'true')
+# add_guest(db, 'Joe LeBeau', '$500 cash', 'Y')
+
+50.times do 
+    add_guest(db, Faker::Name.name, Faker::Commerce.product_name, "no" )    
+end
