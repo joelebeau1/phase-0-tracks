@@ -61,6 +61,7 @@ end
 def view_all
     $GUESTS.each do |guest|
         puts "#{guest[1]} gave a #{guest[2]}, and their thank-you card status is: #{guest[3]}"
+        puts ""
     end
 end
 
@@ -78,6 +79,17 @@ def update_card_status(db, guest_to_update, card_status)
         end
     end
 end
+
+def update_gift(db, guest_to_update, new_gift)
+     $GUESTS.each do |guest|
+        if guest[1] == guest_to_update
+            db.execute("UPDATE guests SET gift=? WHERE name=?", [new_gift, guest_to_update])
+            puts "You have updated #{guest_to_update}'s gift to #{new_gift}."
+        else nil
+        end
+    end
+end
+
 
 # USER INTERFACE--------------------------------
 
@@ -126,6 +138,13 @@ until user_input == 'exit'
             puts "Please enter their updated thank-you card status now:"
             new_card_status = gets.chomp
             update_card_status(db, updated_guest, new_card_status)
+        
+        elsif edit_input == "update gift"
+            puts "Please enter the name of guest you'd like to update now:"
+            updated_guest = gets.chomp
+            puts "Please enter their updated gift now:"
+            updated_gift = gets.chomp
+            update_gift(db, updated_guest, updated_gift)
         end
 
     end
