@@ -65,14 +65,14 @@ def view_all
 end
 
 def user_add_guest(db, new_name, gift, card_status)
-  db.execute("INSERT INTO guests (name, gift, card_sent) VALUES (#{new_name}, #{gift}, #{card_status}")
+  db.execute("INSERT INTO guests (name, gift, card_sent) VALUES (?,?,?)", [new_name, gift, card_status])
   puts "You added #{new_name}, their gift of #{gift}, and their thank-you card status of: #{card_status}"
 end
 
 def update_card_status(db, guest_to_update, card_status)
     $GUESTS.each do |guest|
         if guest[1] == guest_to_update
-            db.execute("UPDATE guests SET card_sent=#{card_status} WHERE name=#{guest_to_update}")
+            db.execute("UPDATE guests SET card_sent=? WHERE name=?", [card_status, guest_to_update])
             puts "For #{guest_to_update}'s gift of #{guest[2]}, you have updated their thank-you card status to: #{card_status}"
         else nil
         end
