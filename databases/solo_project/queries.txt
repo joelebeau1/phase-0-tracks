@@ -1,0 +1,24 @@
+sqlite> SELECT * FROM members;
+
+1|Dick Durbin|Illinois|1|2.2
+2|Elizabeth Warren|Massachusetts|1|4.2
+3|John McCain|Arizona|2|30.2
+4|Bernie Sanders|Vermont|3|10.2
+
+sqlite> UPDATE parties SET name="GOP" WHERE name="Republican";
+
+sqlite> SELECT * FROM members, parties WHERE members.party_id =  parties.id;
+
+1|Dick Durbin|Illinois|1|2.2|1|Democrat
+2|Elizabeth Warren|Massachusetts|1|4.2|1|Democrat
+3|John McCain|Arizona|2|30.2|2|Republican
+4|Bernie Sanders|Vermont|3|10.2|3|Independent
+
+sqlite> SELECT members. name, state, party_id FROM members, parties WHERE members.party_id = parties.id;
+
+Dick Durbin|Illinois|1
+Elizabeth Warren|Massachusetts|1
+John McCain|Arizona|2
+Bernie Sanders|Vermont|3
+
+sqlite> DELETE FROM members WHERE state="Illinois";
