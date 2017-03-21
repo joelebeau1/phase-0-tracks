@@ -1,4 +1,5 @@
 var first_line = document.getElementById("first-line");
+// Changing an element's border using JS
 first_line.style.border = "3px solid black";
 
 var barcelona = document.getElementById("barcelona");
@@ -17,6 +18,17 @@ function addYellowBorder(event) {
     event.target.style.border = "5px solid yellow";
 };
 
+// Add event listeners to change elements style conditionally if they are moused over or clicked
 header.addEventListener("mouseover", addRedBorder);
 
 barcelona.addEventListener("click", addYellowBorder);
+
+// Using JS DOM to add HTML elements through the JS script
+var para = document.createElement("p"); 
+
+var node = document.createTextNode("This is new.");
+
+para.appendChild(node);
+
+var element = document.getElementById("div1");
+element.appendChild(para);
