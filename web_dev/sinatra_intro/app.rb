@@ -64,5 +64,12 @@ get '/great_job' do
 end
 
 # write a route that uses route parameters to add two numbers and respond with result
+get "/:x/plus/:y" do
+    # Initial route parameters are strings, need to be converted to integers
+    x = params[:x].to_i
+    y = params[:y].to_i
+    result = x + y
+    "#{x} + #{y} = #{result}"
+end 
 
 
