@@ -72,4 +72,19 @@ get "/:x/plus/:y" do
     "#{x} + #{y} = #{result}"
 end 
 
+# BONUS: write a route that allows the user to search the database in some way
+# Search by campus (CHI, NYC, SF etc.)
+get "/search/:campus" do
+    # Store all table data where campus matches the route parameter in a variable
+    # Variable will be an array of hashes, with each student's data in their own hash
+    campus_list = db.execute("SELECT * FROM students WHERE campus=?", [params[:campus]])
+    response = ""
+    campus_list.each do |student|
+        # Iterate through array of students, adding each students name to response string
+        response << "#{student['name']}<br>"
+    end
+    # Return readable results
+    "The following students are attending the #{params[:campus]} campus: <br> #{response}"
+end 
+
 
